@@ -1,0 +1,11 @@
+docker
+curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+docker
+ // To run the docker related work, without sudo access, add the current user to the docker group.
+sudo usermod -aG <group> <user-name>
+sudo usermod -aG docker ubuntu
+logout
+docker image ls
+docker container ls
+
+
