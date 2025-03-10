@@ -1,3 +1,43 @@
+======================================MY-WORK=========================================
+Jenkins requires t2.large instance type with 20 GB EBS Volume
+Jenkins runs on port 8080 
+sudo netstat -ntpl | grep 8080
+allow required ports in SG
+------setp-1--------
+#prerequisite is java 
+sudo apt update -y
+sudo apt install openjdk-17* -y
+java -version
+
+-------step-2-----------
+copy LTS script from website 
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+sudo systemctl status jenkins
+#by default it will be active if not active then
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+--------step-3---------
+public-ip:8080
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+customize jenkins-select required
+create uername passwords fullname
+Instance Confugaration--->jenkins url:- http://public-ip:8080/
+start
+--------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+YT
 ---------------setup-1----------------------
 sudo apt-get update
 sudo apt install openjdk-11-jre
